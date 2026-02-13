@@ -1,13 +1,108 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import model.Student;
+import service.StudentService;
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        StudentService service = new StudentService();
+
+        int choice;
+
+        do {
+            System.out.println("\n===== STUDENT MANAGEMENT SYSTEM =====");
+            System.out.println("1. Add Student");
+            System.out.println("2. View Students");
+            System.out.println("3. Search Student");
+            System.out.println("4. Update Student");
+            System.out.println("5. Delete Student");
+            System.out.println("6. Sort by Marks");
+            System.out.println("7. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter ID: ");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Enter Name: ");
+                    String name = sc.nextLine();
+
+                    System.out.print("Enter Age: ");
+                    int age = sc.nextInt();
+
+                    System.out.print("Enter Marks: ");
+                    double marks = sc.nextDouble();
+
+                    service.addStudent(new Student(id, name, age, marks));
+                    break;
+
+                case 2:
+                    service.viewStudents();
+                    break;
+
+                case 3:
+                    System.out.print("Enter ID to search: ");
+                    int searchId = sc.nextInt();
+                    Student found = service.searchStudent(searchId);
+
+                    if (found != null)
+                        System.out.println(found);
+                    else
+                        System.out.println("Student not found.");
+                    break;
+
+                case 4:
+                    System.out.print("Enter ID to update: ");
+                    int updateId = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Enter new Name: ");
+                    String newName = sc.nextLine();
+
+                    System.out.print("Enter new Age: ");
+                    int newAge = sc.nextInt();
+
+                    System.out.print("Enter new Marks: ");
+                    double newMarks = sc.nextDouble();
+
+                    if (service.updateStudent(updateId, newName, newAge, newMarks))
+                        System.out.println("Student updated successfully.");
+                    else
+                        System.out.println("Student not found.");
+                    break;
+
+                case 5:
+                    System.out.print("Enter ID to delete: ");
+                    int deleteId = sc.nextInt();
+
+                    if (service.deleteStudent(deleteId))
+                        System.out.println("Student deleted successfully.");
+                    else
+                        System.out.println("Student not found.");
+                    break;
+
+                case 6:
+                    service.sortByMarks();
+                    break;
+
+                case 7:
+                    System.out.println("Exiting system...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
+
+        } while (choice != 7);
+
+        sc.close();
+    }
 }
