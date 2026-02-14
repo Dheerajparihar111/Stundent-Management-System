@@ -90,6 +90,9 @@ Enter choice:
 1️⃣ Clone Repository
 https://github.com/Dheerajparihar111/Stundent-Management-System/tree/main
 
+<img width="1918" height="1011" alt="Student-Mangement-System output1" src="https://github.com/user-attachments/assets/7ad43b3a-bfa3-4ef8-9334-d4a4e57727b9" />
+<img width="1917" height="1016" alt="Student-Mangement-System output2" src="https://github.com/user-attachments/assets/7eef848b-283b-485a-99dd-4f15f2cfd878" />
+
 2️⃣ Open in IDE
 
 IntelliJ IDEA
