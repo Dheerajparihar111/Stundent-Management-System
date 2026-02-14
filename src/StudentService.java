@@ -1,20 +1,14 @@
-package service;
-
-import model.Student;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class StudentService {
 
     private ArrayList<Student> students = new ArrayList<>();
 
-    // Add Student
     public void addStudent(Student student) {
         students.add(student);
         System.out.println("Student added successfully.");
     }
 
-    // View All Students
     public void viewStudents() {
         if (students.isEmpty()) {
             System.out.println("No students available.");
@@ -26,7 +20,6 @@ public class StudentService {
         }
     }
 
-    // Search Student by ID
     public Student searchStudent(int id) {
         for (Student s : students) {
             if (s.getId() == id) {
@@ -36,7 +29,6 @@ public class StudentService {
         return null;
     }
 
-    // Update Student
     public boolean updateStudent(int id, String name, int age, double marks) {
         Student s = searchStudent(id);
         if (s != null) {
@@ -48,7 +40,6 @@ public class StudentService {
         return false;
     }
 
-    // Delete Student
     public boolean deleteStudent(int id) {
         Student s = searchStudent(id);
         if (s != null) {
@@ -58,9 +49,5 @@ public class StudentService {
         return false;
     }
 
-    // Sort Students by Marks (Descending)
-    public void sortByMarks() {
-        students.sort(Comparator.comparingDouble(Student::getMarks).reversed());
-        System.out.println("Students sorted by marks (Highest first).");
-    }
+
 }

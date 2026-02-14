@@ -10,8 +10,6 @@ public class Student {
         this.age = age;
         this.marks = marks;
     }
-
-    // Getters
     public int getId() {
         return id;
     }
@@ -28,7 +26,6 @@ public class Student {
         return marks;
     }
 
-    // Setters
     public void setName(String name) {
         this.name = name;
     }
@@ -44,8 +41,8 @@ public class Student {
     @Override
     public String toString() {
         return "ID: " + id +
-                ", Name: " + name +
-                ", Age: " + age +
-                ", Marks: " + marks;
+                "\nName: " + name +
+                "\nAge: " + age +
+                "\nMarks: " + marks;
     }
 }

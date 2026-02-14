@@ -1,6 +1,3 @@
-import model.Student;
-import service.StudentService;
-
 import java.util.Scanner;
 
 public class Main {
@@ -13,14 +10,13 @@ public class Main {
         int choice;
 
         do {
-            System.out.println("\n===== STUDENT MANAGEMENT SYSTEM =====");
+            System.out.print("===== STUDENT MANAGEMENT SYSTEM =====");
             System.out.println("1. Add Student");
             System.out.println("2. View Students");
             System.out.println("3. Search Student");
             System.out.println("4. Update Student");
             System.out.println("5. Delete Student");
-            System.out.println("6. Sort by Marks");
-            System.out.println("7. Exit");
+            System.out.println("6. Exit");
             System.out.print("Enter choice: ");
 
             choice = sc.nextInt();
@@ -89,11 +85,9 @@ public class Main {
                         System.out.println("Student not found.");
                     break;
 
-                case 6:
-                    service.sortByMarks();
-                    break;
 
-                case 7:
+
+                case 6:
                     System.out.println("Exiting system...");
                     break;
 
