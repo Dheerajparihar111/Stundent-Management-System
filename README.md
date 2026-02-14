@@ -88,7 +88,7 @@ Enter choice:
 
 🚀 How to Run
 1️⃣ Clone Repository
-git clone https://github.com/Dheerajparihar111/student-management-system.git
+https://github.com/Dheerajparihar111/Stundent-Management-System/tree/main
 
 2️⃣ Open in IDE
 
